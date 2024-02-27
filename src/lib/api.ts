@@ -5,6 +5,9 @@ import { join } from 'path';
 
 const postsDirectory = join(process.cwd(), '_posts');
 
+// The selected code is a function that returns an array of all the post slugs in the \_posts directory.
+// The function uses the fs module to read the directory contents and returns the slugs as an array. This
+// can be used to retrieve all the available posts on the site.
 export function getPostSlugs() {
     return fs.readdirSync(postsDirectory);
 }
@@ -20,6 +23,7 @@ export function getPostBySlug(slug: string) {
 
 export function getAllPosts(): Post[] {
     const slugs = getPostSlugs();
+
     const posts = slugs
         .map((slug) => getPostBySlug(slug))
         // sort posts by date in descending order

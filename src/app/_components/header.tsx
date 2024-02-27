@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
+import { ArrowRightEndOnRectangleIcon } from '@heroicons/react/24/outline';
 
 const navLinks = [
     { key: 'O nás', href: '/' },
@@ -27,6 +28,13 @@ const Header = () => {
                     {link.key}
                 </Link>
             ))}
+            <Link
+                href="/login"
+                className="flex items-center gap-5 self-start rounded-lg bg-blue-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-blue-400 md:text-base"
+            >
+                <span>Log in</span>{' '}
+                <ArrowRightEndOnRectangleIcon className="h-16 w-16 mx-1 stroke-gray-1000" />
+            </Link>
         </section>
     );
 };
