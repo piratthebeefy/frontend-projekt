@@ -1,58 +1,27 @@
-import Footer from '@/app/_components/footer';
-import Header from './_components/header';
-import { Inter } from 'next/font/google';
-
+import { ArrowRightEndOnRectangleIcon } from '@heroicons/react/24/outline';
+import Link from 'next/link';
+import { Metadata } from 'next';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+// Toto je page komponenta v app route. Vnořené adresáře jsou součástí app routeru
+// page komponenta je nutná k tomu, aby byla routa veřejně přístupná
+// tady jsou metada
+export const metadata: Metadata = {
+    title: 'Vstup na stránku Kultivátoru',
+    description: 'Login to gain access to Acme page',
+};
 
-const Page = ({ children }: Readonly<{ children: React.ReactNode }>) => {
+const LoginPage = () => {
     return (
-        <html lang="en">
-            <head>
-                <link
-                    rel="apple-touch-icon"
-                    sizes="180x180"
-                    href="/favicon/apple-touch-icon.png"
-                />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="32x32"
-                    href="/favicon/favicon-32x32.png"
-                />
-                <link
-                    rel="icon"
-                    type="image/png"
-                    sizes="16x16"
-                    href="/favicon/favicon-16x16.png"
-                />
-                <link rel="manifest" href="/favicon/site.webmanifest" />
-                <link
-                    rel="mask-icon"
-                    href="/favicon/safari-pinned-tab.svg"
-                    color="#000000"
-                />
-                <link rel="shortcut icon" href="/favicon/favicon.ico" />
-                <meta name="msapplication-TileColor" content="#000000" />
-                <meta
-                    name="msapplication-config"
-                    content="/favicon/browserconfig.xml"
-                />
-                <meta name="theme-color" content="#000" />
-                <link
-                    rel="alternate"
-                    type="application/rss+xml"
-                    href="/feed.xml"
-                />
-            </head>
-            <body className={inter.className}>
-                <Header />
-                <div className="min-h-screen">{children}</div>
-                <Footer />
-            </body>
-        </html>
+        // next.js Link pro směrování na přihlašovací stránku
+        <Link
+            href="/login"
+            className="flex items-center gap-5 self-start rounded-lg bg-gray-500 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-gray-400 md:text-base mx-auto my-auto"
+        >
+            <span>Log in</span>{' '}
+            <ArrowRightEndOnRectangleIcon className="h-4 w-4 mx-1 stroke-gray-1000" />
+        </Link>
     );
 };
 
-export default Page;
+export default LoginPage;

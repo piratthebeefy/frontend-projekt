@@ -1,12 +1,13 @@
-import { parseISO, format } from "date-fns";
+import { parseISO, format } from 'date-fns';
 
 type Props = {
-  dateString: string;
+    dateString: string;
 };
 
+// komponenta zodpovědná za zobrazení a formátování datumu
 const DateFormatter = ({ dateString }: Props) => {
-  const date = parseISO(dateString);
-  return <time dateTime={dateString}>{format(date, "LLLL	d, yyyy")}</time>;
+    const date = parseISO(dateString);
+    return <time dateTime={dateString}>{format(date, 'LLLL	d, yyyy')}</time>;
 };
 
 export default DateFormatter;
