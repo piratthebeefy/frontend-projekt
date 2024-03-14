@@ -6,6 +6,7 @@ import { Carousel } from 'flowbite-react';
 
 const BandCarousel = () => {
     return (
+        // formatovat, az budou nejaky real obrazky, jinak to nema smysl
         <div className="relative h-lvh sm:h-lvh xl:h-lvh 2xl:h-lvh mx-32 md:mx-32">
             <Carousel slideInterval={2000} pauseOnHover>
                 <div className="h-full w-full duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20 carousel-item">

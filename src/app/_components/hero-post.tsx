@@ -13,6 +13,7 @@ type Props = {
     slug: string;
 };
 
+// prvni prispevek, nekdriv jde obrazek, pak vedle sebe nadpis v linku (pod nim pak datum), vycuc z prispevku (exceprt) a avatar autora
 export function HeroPost({
     title,
     coverImage,
@@ -28,11 +29,11 @@ export function HeroPost({
             </div>
             <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8 mb-20 md:mb-28">
                 <div>
-                    <h3 className="mb-4 text-4xl lg:text-5xl leading-tight">
+                    <h3 className="mb-4 text-50xl lg:text-105xl leading-tight">
                         <Link
                             as={`/main/news/posts/${slug}`}
                             href="/main/news/posts/[slug]"
-                            className="hover:underline"
+                            className="transition-all ease-in-out drop-shadow-md dark:drop-shadow-dark-md hover:drop-shadow-xl dark:hover:drop-shadow-dark-xl hover:text-gray-800 hover:text-55xl hover:lg:text-110xl dark:text-gray-300 dark:hover:text-gray-100"
                         >
                             {title}
                         </Link>

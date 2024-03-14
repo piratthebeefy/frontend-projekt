@@ -13,6 +13,8 @@ type Props = {
     slug: string;
 };
 
+// dalsi prispevky pod prvnim (hero) prispevkem
+
 export function PostPreview({
     title,
     coverImage,
@@ -30,7 +32,7 @@ export function PostPreview({
                 <Link
                     as={`/main/news/posts/${slug}`}
                     href="/main/news/posts/[slug]"
-                    className="hover:underline"
+                    className="transition-all ease-in-out drop-shadow-md dark:drop-shadow-dark-md hover:drop-shadow-xl dark:hover:drop-shadow-dark-xl hover:text-gray-800 hover:text-30xl dark:text-gray-300 dark:hover:text-gray-200"
                 >
                     {title}
                 </Link>

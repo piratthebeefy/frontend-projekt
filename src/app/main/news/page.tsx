@@ -10,13 +10,14 @@ export const metadata: Metadata = {
 };
 
 const News = () => {
+    // nacteni prispevku z _post slozky, prvni prispevek je "heroPost" a udaje o nem sa jako props poslou dolu (prebere si je ./posts/[slug]/page.tsx)
+    // ostatni prispevky (pokud existuji) se jako props predaji do komponenty MoreStories
     const allPosts = getAllPosts();
-
     const heroPost = allPosts[0];
     const morePosts = allPosts.slice(1);
 
     return (
-        <main>
+        <main className="transition-all ease-in-out drop-shadow-md dark:drop-shadow-dark-md hover:drop-shadow-xl dark:hover:drop-shadow-dark-xl hover:text-gray-800 hover:text-55xl hover:lg:text-110xl dark:text-gray-300 dark:hover:text-gray-100">
             <Container>
                 <HeroPost
                     title={heroPost.title}

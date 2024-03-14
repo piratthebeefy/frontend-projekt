@@ -2,6 +2,7 @@
 import { signIn } from '../../auth';
 import { AuthError } from 'next-auth';
 
+// autentizace
 const authenticate = async (
     prevState: string | undefined,
     formData: FormData

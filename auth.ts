@@ -16,6 +16,7 @@ const getUser = async (email: string): Promise<User | undefined> => {
     }
 };
 
+// signOut nepouzivam, neni implementovane
 export const { auth, signIn, signOut } = NextAuth({
     ...authConfig,
     providers: [

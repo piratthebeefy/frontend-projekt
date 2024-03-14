@@ -6,28 +6,29 @@ import { join } from 'path';
 const postsDirectory = join(process.cwd(), '_posts');
 
 // The selected code is a function that returns an array of all the post slugs in the \_posts directory.
-// The function uses the fs module to read the directory contents and returns the slugs as an array. This
-// can be used to retrieve all the available posts on the site.
+// funkce fs prohleda _posts slozku a vrati pole vsech souboru
 export function getPostSlugs() {
+    console.log(`getPostSlugs je ${fs.readdirSync(postsDirectory)}`);
     return fs.readdirSync(postsDirectory);
 }
 
 export function getPostBySlug(slug: string) {
+    // jmeno souboru, bez pripony, pak skonstruuje nazev souboru i s cestou
     const realSlug = slug.replace(/\.md$/, '');
     const fullPath = join(postsDirectory, `${realSlug}.md`);
+    // precte soubor a vrati metada i jeho obsah jako pole
     const fileContents = fs.readFileSync(fullPath, 'utf8');
-    console.log(fullPath);
     const { data, content } = matter(fileContents);
 
     return { ...data, slug: realSlug, content } as Post;
 }
 
+// tahle funkce vrati obsah vsech markdown souboru, a seradi je dle datumu
 export function getAllPosts(): Post[] {
     const slugs = getPostSlugs();
 
     const posts = slugs
         .map((slug) => getPostBySlug(slug))
-        // sort posts by date in descending order
         .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
     return posts;
 }
